@@ -12,7 +12,7 @@ import { ImageUploader } from '@/components/ui/ImageUploader';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from 'next/image';
 
-const API_BASE_URL = 'http://localhost:5000';
+import { API_BASE_URL } from '@/config';
 
 export function UserDetailsView() {
   const params = useParams();

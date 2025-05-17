@@ -1,12 +1,9 @@
 import { NextResponse } from 'next/server';
+import { API_BASE_URL } from '@/config';
 
 export async function POST(request) {
   try {
     console.log('Next.js API route: File upload request received');
-    
-    // Get the API URL from environment variable or use a default
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-    console.log('Backend API URL:', apiUrl);
     
     // Get the form data from the request
     const formData = await request.formData();

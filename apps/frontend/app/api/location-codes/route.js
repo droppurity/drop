@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
+import { API_BASE_URL } from '@/config';
 
 // Get all pincodes or location details by pincode
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const pincode = searchParams.get('pincode');
-    
-    // Get the API URL from environment variable or use a default
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
     
     // Determine which endpoint to call based on parameters
     let endpoint = '/api/location-codes/pincodes';
@@ -16,7 +14,7 @@ export async function GET(request) {
     }
     
     // Forward the request to the backend
-    const response = await fetch(`${apiUrl}${endpoint}`, {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

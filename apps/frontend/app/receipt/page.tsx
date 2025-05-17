@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 
-const API_BASE_URL = 'http://localhost:5000';
+import { API_BASE_URL } from '@/config';
 
 function ReceiptContent() {
   const searchParams = useSearchParams();
