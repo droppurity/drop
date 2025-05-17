@@ -4,8 +4,14 @@ export async function GET() {
   try {
     console.log('Frontend pincodes API route: Fetching pincodes');
     
-    // Get the API URL from environment variable or use a default
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+    // Get the API URL from environment variable
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (!apiUrl) {
+      return NextResponse.json(
+        { error: 'API_URL environment variable is not set' },
+        { status: 500 }
+      );
+    }
     console.log('Backend API URL:', apiUrl);
     
     // Forward the request to the backend
@@ -13,6 +19,7 @@ export async function GET() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
     });
     
